@@ -1,0 +1,40 @@
+想象一下，你是汽车销售商，你的责任是：
+1. 通知汽车生产商生产所需的汽车产品;
+2. 售卖汽车；
+
+代码涉及的角色：
+1. Car：抽象产品；
+2. AudiCar等：具体产品；
+3. SingleCarFactory：汽车工厂；
+4. SingleCarShop：汽车销售商；
+5. CarBuyer:客户，购买汽车的人；
+
+它们之间的关系：
+SingleCarShop 是 工厂SingleCarFactory的客户；
+CarBuyer 是 汽车销售商SingleCarShop的客户；
+
+
+**注意**：汽车生产商是生产汽车的，而不是销售商;
+另外客户不需要知道汽车是从哪里来的，因为客户只需要和汽车销售商打交道，
+客户只需要告诉汽车销售商，需要买哪个品牌的汽车;
+
+**简单工厂**其实不算是23种设计模式的一种，它更像是一种良好的编程习惯。
+
+我们把**制造汽车createCar**都放到SingleCarFactory类里面，它只负责如何制造汽车。如果有
+任何对象想制造汽车，直接找它就行啦。
+
+##### 把制造汽车单独放到SingleCarFactory的好处？
+> 很多初学者(including me)都很疑惑，我即使把createCar()直接在销售商SingleCarShop里面实现也可以，而且感觉也就
+只是把代码换了个位置而已，并没有让我体会到太多的好处。
+
+想象一下，汽车工厂(SingleCarFactory)难道仅仅只是为了给汽车销售商制造汽车吗？它也可能给政府，军队，私人定制(customize)来服务。
+如果是这样我们怎么去实现？
+如果不把制造汽车给单独提取到SingleCarFactory,那么我们要把制造汽车的逻辑在政府(Government)，军队(Army)的类里面
+都要再次实现createCar().如果是这样的话(If so)，那就有两个弊端：
+1. 代码重复;
+2. 一旦需要制造汽车的需求有变化，we have to 修改多处代码(CarShop,Government...)。
+
+###总结好处：
+我们理解了上述的弊端，这样做就是解决这些问题的。即：避免代码重复，具有一定的扩展性。
+对于"工厂的客户"(CarShop,Government,Army...)而言,它们通过简单工厂SingleCarFactory获得
+汽车的实例(不需要 new)，
