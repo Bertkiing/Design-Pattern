@@ -4,7 +4,7 @@ package simple_factory;
  * Created by king on 2018/3/14.
  * 简单工厂的测试类
  */
-public class SingleFactoryTest {
+public class CarBuyer {
     public static void main(String[] args) {
         SingleCarFactory factory = new SingleCarFactory();
         SingleCarShop shop = new SingleCarShop(factory);
