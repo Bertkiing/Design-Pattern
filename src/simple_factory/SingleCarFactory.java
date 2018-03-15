@@ -2,7 +2,9 @@ package simple_factory;
 
 
 /**
- * Created by king on 2018/3/14.
+ *
+ * @author king
+ * @date 2018/3/14
  * 简单的汽车工厂
  */
 public class SingleCarFactory {

@@ -1,5 +1,7 @@
 package simple_factory;
 
+import factory_method.CarType;
+
 /**
  *
  * @author king
@@ -7,6 +9,12 @@ package simple_factory;
  * 宝马汽车
  */
 public class BMWCar extends Car {
+    public BMWCar() {
+    }
+
+    public BMWCar(CarType carType) {
+        this.carType = carType;
+    }
 
     @Override
     public String getBrand() {
@@ -30,22 +38,22 @@ public class BMWCar extends Car {
 
     @Override
     public void drive() {
-        System.out.println(getBrand() + " is driving");
+        System.out.println(brandAndCartype() + " is driving");
     }
 
     @Override
     public void run() {
-        System.out.println(getBrand() + "is running");
+        System.out.println(brandAndCartype() + "is running");
     }
 
     @Override
     public void sound() {
-        System.out.println(getBrand() + " make sound");
+        System.out.println(brandAndCartype() + " make sound");
     }
 
     @Override
     public void carry() {
-        System.out.println(getBrand() + " carry man");
+        System.out.println(brandAndCartype() + " carry man");
     }
 
     @Override
@@ -54,6 +62,7 @@ public class BMWCar extends Car {
                 "brand='" + brand + '\'' +
                 ", maxSpeed=" + maxSpeed +
                 ", color=" + color +
+                ", carType=" + carType +
                 '}';
     }
 }

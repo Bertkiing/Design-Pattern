@@ -1,12 +1,20 @@
 package simple_factory;
 
+import factory_method.CarType;
+
 /**
- *
  * @author king
  * @date 2018/3/14
  * 奔驰
  */
 public class BenzCar extends Car {
+
+    public BenzCar() {
+    }
+
+    public BenzCar(CarType type) {
+        this.carType = type;
+    }
 
     @Override
     public String getBrand() {
@@ -25,21 +33,21 @@ public class BenzCar extends Car {
 
     @Override
     public void drive() {
-        System.out.println(getBrand()+" is driving");
+        System.out.println(brandAndCartype() + " is driving");
     }
 
     @Override
     public void run() {
-        System.out.println(getBrand()+ " is running");
+        System.out.println(brandAndCartype() + " is running");
     }
 
     @Override
     public void sound() {
-        System.out.println(getBrand() + " make sound");
+        System.out.println(brandAndCartype() + " make sound");
     }
 
     @Override
     public void carry() {
-        System.out.println(getBrand() + " carry man");
+        System.out.println(brandAndCartype() + " carry man");
     }
 }
