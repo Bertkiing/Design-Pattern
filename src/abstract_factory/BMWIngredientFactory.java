@@ -20,8 +20,5 @@ public class BMWIngredientFactory implements CarIngredientFactory {
         return new BenzGearbox();
     }
 
-    @Override
-    public Car createCar() {
-        return new BMWCar(createEngine(), createGearbox(), createChassis());
-    }
+
 }

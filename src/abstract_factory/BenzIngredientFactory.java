@@ -21,8 +21,5 @@ public class BenzIngredientFactory implements CarIngredientFactory {
         return new BenzGearbox();
     }
 
-    @Override
-    public Car createCar() {
-        return new AudiCar(createEngine(),createGearbox(),createChassis());
-    }
+
 }

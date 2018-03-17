@@ -3,30 +3,30 @@ package abstract_factory;
 import simple_factory.BrandSpeedEnum;
 
 /**
- * Created by king on 2018/3/15.
+ *
+ * @author king
+ * @date 2018/3/15
  */
 public class CarShop {
-    CarIngredientFactory factory;
+    CarFactory factory;
 
     public Car sellCar(BrandSpeedEnum brand) {
         Car car;
-        // 不需要new 具体的对象，良好的编程习惯
-
         switch (brand) {
             case BENZ:
-                factory = new BenzIngredientFactory();
+                car = new BenzCarFactory().createCar();
                 break;
             case BMW:
-                factory = new BMWIngredientFactory();
+                car = new BMWCarFactory().createCar();
                 break;
             case AUDI:
-                factory = new AudiIngredientFactory();
+                car = new AudiCarFactory().createCar();
                 break;
             default:
                 throw new IllegalArgumentException("cannot support argument");
         }
 
-        car = factory.createCar();
+
         System.out.println("汽车销售商卖车...");
 
         car.drive();
